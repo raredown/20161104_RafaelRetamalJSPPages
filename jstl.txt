@@ -1,0 +1,14 @@
+Significado, etiqueta,atributos,requerido,ejemplo,salida
+C:SET
+C:OUT
+C:REMOVE
+C:IF
+c:choose
+c:cath
+c:forEach con un beans con un controtutor con una lista
+c:forEach varStatus
+c:forEach begin end step
+c:forTokens
+c:import
+c:url
+c:redirect
