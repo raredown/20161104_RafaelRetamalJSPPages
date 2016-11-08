@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-        <form method="post" action="jsp/salidael.jsp">
+        <form method="post" action="jsp/Controlador.jsp">
             <label for="usuarioPrueba">Nombre</label>
             <input type="text"   id="nombre" name="nombre">
             <label for="usuarioPrueba">Apellido</label>
