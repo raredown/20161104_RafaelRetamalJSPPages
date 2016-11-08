@@ -12,3 +12,41 @@ c:forTokens
 c:import
 c:url
 c:redirect
+
+//segunda pagina
+Significado función sintaxis ejemplo salida
+cadena original
+length
+toUpperCase
+toLowerCase
+substring
+substringAfter
+substringBefore
+replace
+split
+contains
+containsIgnoreCase
+indexOf
+join
+starstWith
+endsWith
+trim
+
+//Tercera pagina
+setLocale
+setTimeZone
+formatDate
+formatnumber
+bundle
+message
+
+//Ejercicio
+Paises en un select 6 paises
+Hora
+desde el menu a un servlet la fecha 
+traducion de una palabra
+horas
+numero
+fecha
+
+

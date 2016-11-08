@@ -17,7 +17,9 @@
     </head>
     <body>
         <c:set var="enlace1" value="jsp/Glorasrio.jsp"/>
+        <c:set var="enlace2" value="jsp/Funciones.jsp"/>
         <h1>Ejercicio JSTL!</h1>
         <a href="<c:out value="${enlace1}"/>">Glosarios</a>
+        <a href="<c:out value="${enlace2}"/>">Funciones</a>
     </body>
 </html>
