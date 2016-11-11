@@ -8,19 +8,24 @@ package com.mycompany.paisesrafa;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
+import java.util.TreeMap;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author rafa
+ * @author Daw2
  */
-@WebServlet(name = "Controlador", urlPatterns = {"/Controlador"})
-public class Controlador extends HttpServlet {
+@WebServlet(name = "CreadorPaises", urlPatterns = {"/CreadorPaises"})
+public class CreadorPaises extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,12 +38,31 @@ public class Controlador extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //System.out.println("com.mycompany.paisesrafa.Controlador.processRequest()");
-        //request.getParameter("lenguaje");
-        //request.getParameter("libro");
-       // System.out.println(request.getParameter("lenguaje"));
-       
-        request.getRequestDispatcher("jsps/Mostrar.jsp").forward(request, response);
+        HttpSession sesion = request.getSession(true);
+                    System.out.println("aqui");
+
+      //  if (sesion.isNew()) {
+            System.out.println("com.mycompany.paisesrafa.CreadorPaises.processRequest()");
+            Locale locales[] = SimpleDateFormat.getAvailableLocales();
+            ArrayList<String> array = new ArrayList();
+            TreeMap<String, String> map = new TreeMap<String, String>();
+            for (int i = 0; i < locales.length; i++) {
+                // map.put(locales[i].toString(), locales[i].getDisplayName());
+               // System.out.println(locales[i].toString() + locales[i].getDisplayName());
+                array.add(locales[i].toString() + locales[i].getDisplayName());
+                if (locales[i].getDisplayCountry() != ""&&locales[i].toString().length()==5) {
+                 
+                    map.put(locales[i].getDisplayCountry(),locales[i].toString());
+                }
+
+            }
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                System.out.println("clave=" + entry.getKey() + ", valor=" + entry.getValue());
+            }
+            sesion.setAttribute("paises", map);
+
+        //}
+        request.getRequestDispatcher("jsps/Paises.jsp").forward(request, response);
 
     }
 
