@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,17 +15,17 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-          <form method="post" action="Controlador">
-            <select name="lenguaje">
-                <option name="lenguaje" value="Italia">Italia</option>
-                <option name="lenguaje" value="Espana">España</option>
-
-                <option name="lenguaje" value="Inglaterra">Inglaterra</option>
-                <option name="lenguaje" value="Japon">Japon</option>
-                <option name="lenguaje" value="Francia">Francia</option>
-
+        <form method="post" action="Controlador">
+            <select name ="dos">
+                <c:set var="peis" value="${sessionScope.paises}" />
+                <c:forEach var="country" items="${peis}">
+                     <option name="lenguaje" value="${country.value}">${country.key} </option>
+                </c:forEach>
             </select>
+
             <input type="submit" value="enviar">
         </form>
+
+
     </body>
 </html>
