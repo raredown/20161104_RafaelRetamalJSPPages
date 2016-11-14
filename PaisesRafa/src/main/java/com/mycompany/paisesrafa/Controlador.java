@@ -8,6 +8,7 @@ package com.mycompany.paisesrafa;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,10 +35,42 @@ public class Controlador extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //System.out.println("com.mycompany.paisesrafa.Controlador.processRequest()");
-        //request.getParameter("lenguaje");
+        request.getParameter("lenguaje");
         //request.getParameter("libro");
-       // System.out.println(request.getParameter("lenguaje"));
-       
+        // System.out.println(request.getParameter("lenguaje"));
+        Date fechita = new Date();
+        request.setAttribute("fechita", fechita);
+        request.setAttribute("codigito", request.getParameter("lenguaje"));
+        switch (request.getParameter("lenguaje")) {
+
+            case "es_ES":
+                // request.setAttribute("codigito", "Espana");
+                request.setAttribute("fichero", "Espana");
+                request.setAttribute("paisito", "España");
+                break;
+
+            case "fr_FR":
+                request.setAttribute("fichero", "Francia");
+                request.setAttribute("paisito", "France");
+                break;
+            case "ja_JP":
+                request.setAttribute("fichero", "Japon");
+                request.setAttribute("paisito", "ハポン");
+                break;
+            case "it_IT":
+                request.setAttribute("fichero", "Italia");
+                request.setAttribute("paisito", "Italia");
+                break;
+            case "en_GB":
+                request.setAttribute("fichero", "Inglaterra");
+                request.setAttribute("paisito", "Britain");
+                break;
+            default:
+                request.setAttribute("fichero", "Inglaterra");
+                request.setAttribute("paisito", "We have no translation for the country caught");
+                break;
+
+        }
         request.getRequestDispatcher("jsps/Mostrar.jsp").forward(request, response);
 
     }

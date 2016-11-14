@@ -16,7 +16,7 @@
     <body>
         <h1>Hello World!</h1>
         <form method="post" action="Controlador">
-            <select name ="dos">
+            <select name ="lenguaje">
                 <c:set var="peis" value="${sessionScope.paises}" />
                 <c:forEach var="country" items="${peis}">
                      <option name="lenguaje" value="${country.value}">${country.key} </option>

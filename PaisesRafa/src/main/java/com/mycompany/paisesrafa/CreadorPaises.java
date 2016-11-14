@@ -39,10 +39,10 @@ public class CreadorPaises extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession sesion = request.getSession(true);
-                    System.out.println("aqui");
+                 //   System.out.println("aqui");
 
-      //  if (sesion.isNew()) {
-            System.out.println("com.mycompany.paisesrafa.CreadorPaises.processRequest()");
+       if (sesion.getAttribute("paises")==null) {
+           // System.out.println("com.mycompany.paisesrafa.CreadorPaises.processRequest()");
             Locale locales[] = SimpleDateFormat.getAvailableLocales();
             ArrayList<String> array = new ArrayList();
             TreeMap<String, String> map = new TreeMap<String, String>();
@@ -57,11 +57,11 @@ public class CreadorPaises extends HttpServlet {
 
             }
             for (Map.Entry<String, String> entry : map.entrySet()) {
-                System.out.println("clave=" + entry.getKey() + ", valor=" + entry.getValue());
+               // System.out.println("clave=" + entry.getKey() + ", valor=" + entry.getValue());
             }
             sesion.setAttribute("paises", map);
 
-        //}
+        }
         request.getRequestDispatcher("jsps/Paises.jsp").forward(request, response);
 
     }
