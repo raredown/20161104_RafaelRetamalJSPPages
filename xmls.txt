@@ -1,0 +1,12 @@
+un fichero xml q tenga un nodo y tres raices mas y tres cosas
+parse 
+out
+foreach
+if
+set
+transform
+
+  <c:import var="xml" url="xml/universidad.xml"/>
+        <x:parse varDom="uni" xml="xml"/>
+        <h1>Hello World!</h1>
+        <x:out select="$uni/universidad/nombre" />
